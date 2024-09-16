@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 
 export const HeaderAuth = ({type})=>{
-    console.log(type);
     return (
         <div className="flex content-center	flex-col">
                         <div className="text-3xl font-extrabold">
