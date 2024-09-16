@@ -1,2 +1,4 @@
-Simple website with Login and Signup page.
-Landing Page not added yet.
+# Simple website with Login and Signup page.
+ ## Navigate to Namaste-food
+ - npm install
+ - npm run dev
