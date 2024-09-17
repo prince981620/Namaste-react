@@ -3,6 +3,7 @@ import { Header } from "../component/Header"
 import axios from "axios";
 import { RestrauntCard } from "../component/RestrauntCard";
 import { Shimmer } from "../component/shimmer";
+import { SWIGGY_API } from "../utils/constants";
 
 export const Food = ()=>{
     const [resData,setResData] = useState([]);
@@ -12,7 +13,7 @@ export const Food = ()=>{
         apicall();
     },[])
     const apicall = async ()=>{
-        const res = await axios.get("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65200&lng=77.16630&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const res = await axios.get(SWIGGY_API);
         const result = res?.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
         setResData(result);
         setFilterRes(result);
