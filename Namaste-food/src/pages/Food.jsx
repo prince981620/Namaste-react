@@ -20,7 +20,6 @@ export const Food = ()=>{
     }
     return (
         <div>
-            <Header/>
             <div>
                 <input className="border m-4 p-2" type="text" placeholder="search" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
                 <button onClick={()=>{

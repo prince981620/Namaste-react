@@ -6,7 +6,6 @@ import { Header } from "../component/Header";
 export const Signup = ()=>{
     return (
         <div>
-        <Header/>
         <SignupAuth/>
         </div>
     )
