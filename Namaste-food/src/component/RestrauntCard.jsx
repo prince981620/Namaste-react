@@ -4,9 +4,9 @@ export const RestrauntCard = ({ resdata }) => {
     const { cloudinaryImageId, name, cuisines, avgRating, sla } = resdata?.info || {};
     
     return (
-        <div className="bg-slate-300 border-black m-[10px] w-[250px] flex flex-col">
-            <div className="h-[45%]">
-                <img className="w-full h-full object-cover" src={cloudinaryImageId ? CDN_URL + cloudinaryImageId : "/path-to-placeholder.jpg"} alt={name} />
+        <div className="bg-slate-200 hover:bg-slate-300 rounded-lg border-black m-[10px] p-4 w-[250px] h-[420px] flex flex-col">
+            <div>
+                <img className="w-[250px] h-[200px] rounded-3xl" src={cloudinaryImageId ? CDN_URL + cloudinaryImageId : "/path-to-placeholder.jpg"} alt={name} />
             </div>
 
             <div className="p-2 flex flex-col justify-around">
@@ -18,3 +18,14 @@ export const RestrauntCard = ({ resdata }) => {
         </div>
     );
 };
+
+export const RestrauntCardPromoted = (RestrauntCard)=>{ //higher order component
+    return(props)=>{
+        return(
+            <div>
+                <label className="absolute p-1 m-2 bg-black text-white rounded-lg">Promoted</label>
+                <RestrauntCard {...props}/>
+            </div>
+        )
+    }
+}

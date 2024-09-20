@@ -20,25 +20,25 @@ export const DataTable = () => {
   <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
     <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
         <tr className='border bg-slate-200'>
-            <th scope="col" className="px-6 border-2 font-extrabold border-black py-3">Item Name</th>
-            <th scope="col" className="px-6 border-2 font-extrabold border-black py-3">Color</th>
-            <th scope="col" className="px-6 border-2 font-extrabold border-black py-3">Category</th>
-            <th scope="col" className="px-6 border-2 font-extrabold border-black py-3">Price</th>
+            <th key="name" scope="col" className="px-6 border-2 font-extrabold border-black py-3">Item Name</th>
+            <th key="color" scope="col" className="px-6 border-2 font-extrabold border-black py-3">Color</th>
+            <th key="category" scope="col" className="px-6 border-2 font-extrabold border-black py-3">Category</th>
+            <th key="price" scope="col" className="px-6 border-2 font-extrabold border-black py-3">Price</th>
           </tr>
         </thead>
         <tbody>
           {currentData.map((item,color,category,price,index) => (
               <tr className="bg-white border border-black ">
-              <th scope="row" className="px-6 border border-black py-4 font-medium text-gray-900 whitespace-nowrap">
+              <th key={index} scope="row" className="px-6 border border-black py-4 font-medium text-gray-900 whitespace-nowrap">
                     Name of {item}
                 </th>
-                <td className="px-6 border border-black py-4">
+                <td key={index} className="px-6 border border-black py-4">
                     Color of {item}
                 </td>
-                <td className="px-6 border border-black py-4">
+                <td key={index} className="px-6 border border-black py-4">
                     Category of {item}
                 </td>
-                <td className="px-6 border border-black py-4">
+                <td key={index} className="px-6 border border-black py-4">
                     Price of {item}
                 </td>
             </tr>
