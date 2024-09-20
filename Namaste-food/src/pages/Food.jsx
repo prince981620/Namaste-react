@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export const Food = ()=>{
     const [resData,setResData] = useState([]);
     const [filteredRes,setFilterRes] = useState([]);
-    const [searchText,setSearchText] = useState("");
+    // const [searchText,setSearchText] = useState("");
     useEffect(()=>{
         apicall();
     },[])
@@ -19,16 +19,20 @@ export const Food = ()=>{
         setResData(result);
         setFilterRes(result);
     }
-    console.log(filteredRes);
+    // console.log(filteredRes);
+    const searchReastraunt = (searchText)=>{
+        const res = resData.filter((curRes)=> curRes.info.name.toLowerCase().includes(searchText.toLocaleLowerCase()));
+        setFilterRes(res);
+    }
     const PromotedRestrauntCard = RestrauntCardPromoted(RestrauntCard);
     return (
         <div>
             <div>
-                <input className="border m-4 p-2" type="text" placeholder="search" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
-                <button onClick={()=>{
-                    const res = resData.filter((curRes)=> curRes.info.name.toLowerCase().includes(searchText.toLocaleLowerCase()));
-                    setFilterRes(res);
-                }} type="button" className="mt-2 text-white bg-slate-400 hover:bg-slate-600 focus:outline-none focus:ring-4 focus:ring-slate-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">Search</button>
+                <input className="border m-4 p-2" type="text" placeholder="search" onChange={(e)=>{
+                    // setSearchText(e.target.value);
+                    searchReastraunt(e.target.value);
+                    }}/>
+                {/* <button type="button" className="mt-2 text-white bg-slate-400 hover:bg-slate-600 focus:outline-none focus:ring-4 focus:ring-slate-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">Search</button> */}
                 </div>
             <div className="flex flex-wrap mt-4">
             {filteredRes.length === 0 ? <Shimmer/> : filteredRes.map((res)=>
