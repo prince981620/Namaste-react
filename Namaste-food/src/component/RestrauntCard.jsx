@@ -4,7 +4,7 @@ export const RestrauntCard = ({ resdata }) => {
     const { cloudinaryImageId, name, cuisines, avgRating, sla } = resdata?.info || {};
     
     return (
-        <div className="bg-slate-200 hover:bg-slate-300 rounded-lg border-black m-[10px] p-4 w-[250px] h-[420px] flex flex-col">
+        <div className="bg-slate-200 hover:bg-slate-300 rounded-lg border-black m-[10px] p-4 flex flex-col">
             <div>
                 <img className="w-[250px] h-[200px] rounded-3xl" src={cloudinaryImageId ? CDN_URL + cloudinaryImageId : "/path-to-placeholder.jpg"} alt={name} />
             </div>
